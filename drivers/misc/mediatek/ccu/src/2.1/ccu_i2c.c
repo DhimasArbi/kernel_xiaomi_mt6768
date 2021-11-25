@@ -66,7 +66,6 @@ static int ccu_i2c_remove(struct i2c_client *client);
 /*ccu i2c operation*/
 static struct i2c_client *get_ccu_i2c_client(
 	enum CCU_I2C_CHANNEL i2c_controller_id);
-static void ccu_i2c_dump_info(struct mt_i2c *i2c);
 static int ccu_i2c_controller_en(enum CCU_I2C_CHANNEL i2c_controller_id,
 	int enable);
 static int i2c_query_dma_buffer_addr(struct ccu_device_s *g_ccu_device,
@@ -400,7 +399,6 @@ void ccu_i2c_dump_errr(void)
 		pClient = get_ccu_i2c_client((enum CCU_I2C_CHANNEL)i);
 		if (pClient != NULL) {
 			i2c = i2c_get_adapdata(pClient->adapter);
-			ccu_i2c_dump_info(i2c);
 		} else {
 			LOG_INF_MUST(
 				"I2C controller[%d] CCU client is null\n", i);
@@ -557,6 +555,7 @@ static inline void i2c_writew(u16 value, struct mt_i2c *i2c,
 {
 	writew(value, i2c->base + offset);
 }
+<<<<<<< HEAD
 
 static void ccu_i2c_dump_info(struct mt_i2c *i2c)
 {
@@ -616,3 +615,5 @@ I2CTAG "IO_CONFIG=%x,HS=%x,DCM_EN=%x,DEBUGSTAT=%x,EXT_CONF=%x,LEN_AUX=%x\n",
 	       (i2c_readl_dma(i2c, OFFSET_RX_MEM_ADDR2)));
 	pr_info("i2c_dump_info ------------------------------------------\n");
 }
+=======
+>>>>>>> 7bcf323c7e9f... drivers: mtk-ccu: Avoid i2c dumps altogether

@@ -60,7 +60,6 @@ static inline u32 i2c_readl_dma(struct mt_i2c *i2c, u16 offset);
 static inline void i2c_writel_dma(u32 value, struct mt_i2c *i2c, u16 offset);
 static inline u16 i2c_readw(struct mt_i2c *i2c, u16 offset);
 static inline void i2c_writew(u16 value, struct mt_i2c *i2c, u16 offset);
-static void ccu_i2c_dump_info(struct mt_i2c *i2c);
 
 static const struct i2c_device_id ccu_i2c_2_ids[] = {
 	{CCU_I2C_BUS2_HW_DRVNAME, 0},
@@ -330,6 +329,7 @@ void ccu_i2c_dump_errr(void)
 		return;
 	}
 	i2c = i2c_get_adapdata(pClient->adapter);
+<<<<<<< HEAD
 	ccu_i2c_dump_info(i2c);
 }
 
@@ -386,4 +386,6 @@ static void ccu_i2c_dump_info(struct mt_i2c *i2c)
 	       (i2c_readl_dma(i2c, 0x80 + OFFSET_RX_MEM_ADDR2)));
 	pr_info("i2c_dump_info ------------------------------------------\n");
 
+=======
+>>>>>>> 7bcf323c7e9f... drivers: mtk-ccu: Avoid i2c dumps altogether
 }
