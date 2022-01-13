@@ -2204,15 +2204,8 @@ static inline u32 open_file_to_av(struct file *file)
 
 static int selinux_binder_set_context_mgr(const struct cred *mgr)
 {
-<<<<<<< HEAD
-	u32 mysid = current_sid();
-	u32 mgrsid = task_sid(mgr);
-
 	return avc_has_perm(&selinux_state,
-			    mysid, mgrsid, SECCLASS_BINDER,
-=======
-	return avc_has_perm(current_sid(), cred_sid(mgr), SECCLASS_BINDER,
->>>>>>> 253cad9a9560b39321c5c8ec3343838a01b3c787
+			    current_sid(), cred_sid(mgr), SECCLASS_BINDER,
 			    BINDER__SET_CONTEXT_MGR, NULL);
 }
 
