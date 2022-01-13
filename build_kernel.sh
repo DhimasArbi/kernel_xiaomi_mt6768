@@ -110,7 +110,7 @@ build_kernel() {
 
 ##----------------------------------------------------------------##
 
-export OUTDIR=/root
+export OUTDIR=/home/ubuntu/kernel
 
 if [[ $CLONE == true ]]
 then
@@ -120,7 +120,7 @@ then
 fi
 
 #telegram env
-CHATID=-1001459070028
+CHATID=-1001590252720
 BOT_MSG_URL="https://api.telegram.org/bot$TOKEN/sendMessage"
 BOT_BUILD_URL="https://api.telegram.org/bot$TOKEN/sendDocument"
 
